@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I built a legal community of 5,000 people while working full-time at a law firm — Jyotirmoy Nath</title>
+  <meta name="description" content="How a first-generation lawyer built Law Firm Ready from scratch during Covid — with no budget, no connections, and a full-time job at JSA." />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1814;
+      --muted: #6b6560;
+      --rule: #e2ddd8;
+      --bg: #faf8f5;
+      --accent: #c0392b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,248,245,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.5px solid var(--rule);
+      padding: 0 5%;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .back-link {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--ink); }
+
+    /* ARTICLE */
+    .article-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 100px 24px 120px;
+    }
+
+    .article-cat {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .article-lede {
+      font-family: 'Lora', serif;
+      font-size: 19px;
+      line-height: 1.65;
+      color: #3d3830;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+      font-style: italic;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #3d3830;
+      margin-bottom: 28px;
+    }
+
+    .article-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      margin: 52px 0 18px;
+    }
+
+    /* AUTHOR FOOTER */
+    .article-footer {
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg);
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .author-bio {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .author-links {
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .author-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      background: #ede9e3;
+      padding: 8px 16px;
+      border-radius: 980px;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .author-link:hover { opacity: 0.7; }
+
+    @media (max-width: 600px) {
+      .article-footer { flex-wrap: wrap; }
+      .author-links { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-name">Jyotirmoy Nath</a>
+    <a href="/#writing" class="back-link">← Writing</a>
+  </nav>
+
+  <!-- ARTICLE -->
+  <div class="article-wrap">
+
+    <div class="article-cat">Law Firm Ready</div>
+
+    <div class="article-meta">
+      <span>5 min read</span>
+    </div>
+
+    <h1>I built a legal community of 5,000 people while working full-time at a law firm</h1>
+
+    <p class="article-lede">
+      It started with a problem I had no idea how to solve. It ended with a community, a platform, a team, and lessons I couldn't have paid for.
+    </p>
+
+    <div class="article-body">
+
+      <p>I launched Law Firm Ready at the peak of Covid. Everything had shut down: campuses closed, people confined to their homes, and the mentorship networks law students depended on simply vanished. Law firms had paused hiring. The job market had tightened in a way that felt, at the time, indefinite. And for first-generation lawyers like me, with no senior family members to call and no insider relationships to fall back on, the silence was especially loud.</p>
+
+      <p>Most people used that moment to wait it out. I used it to build a platform, recruit mentors I hadn't met yet, and teach myself no-code tools at midnight. Not because the timing was right — it obviously wasn't. Because the problem was right there, and I didn't see the point in waiting.</p>
+
+      <p>Law Firm Ready was a direct response to that gap. The model was simple: connect final-year students with junior lawyers at top firms for structured mentorship conversations. Not vague encouragement. Specific, honest information from people one step ahead, before students made decisions they couldn't undo. I launched it one month before joining JSA as an associate in Mumbai, and for two years, I ran both in parallel.</p>
+
+      <p>The operational reality of that looked like this: early mornings on content, weekends on operations, late nights teaching myself whatever the next problem required. I learned Canva and video editing tools to run Instagram. I built the website myself using no-code tools to handle onboarding, applications, and mentor matching. I shaped the content strategy on LinkedIn, not just to grow a following, but to make the platform useful even to students who never made it into a mentee batch. Posts on how to approach a research question from a senior. What a redline is. How to get work as an intern. Industry vocabulary that nobody formally teaches you. If you found us and didn't get selected, you still left knowing something. We never ran a sponsored ad. Every one of our 5,000+ followers came through something we made and put out.</p>
+
+      <p>The skills that built Law Firm Ready had almost nothing to do with law. It was product thinking, content strategy, distribution, team management without authority, and feedback loops that actually changed the product. None of which I was getting from deal memos. I stepped back in 2023, and my co-founder Rohit Sharma took it forward, rebranding it as All for Law. That handoff is the clearest signal I know that we built something real.</p>
+
+      <p>The instinct it gave me: see the problem, move toward it, figure out the rest on the way. That is what I bring into every room now.</p>
+
+    </div>
+
+    <!-- AUTHOR FOOTER -->
+    <div class="article-footer">
+      <div class="author-avatar">J</div>
+      <div>
+        <div class="author-name">Jyotirmoy Nath</div>
+        <div class="author-bio">Lawyer · Founder · AI builder</div>
+      </div>
+      <div class="author-links">
+        <a href="https://in.linkedin.com/in/jyotirmoy-nath-26531714b" target="_blank" class="author-link">LinkedIn ↗</a>
+        <a href="/" class="author-link">Portfolio</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
