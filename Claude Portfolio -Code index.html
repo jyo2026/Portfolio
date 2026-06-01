@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jyotirmoy Nath — Lawyer, AI Builder, Founder</title>
+  <meta name="description" content="Lawyer turned AI builder. I build tools for legal workflows and understand the domain problems they actually need to solve." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #1d1d1f;
+      --mid: #6e6e73;
+      --light: #86868b;
+      --white: #f5f5f7;
+      --surface: #f5f5f7;
+      --dark-card: #2d2d2f;
+      --pure-white: #ffffff;
+      --border: #d2d2d7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--pure-white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 5%;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-cta {
+      background: var(--black);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.8; }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 5% 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-name {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards 0.1s;
+    }
+
+    .hero-rotating-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards 0.25s;
+    }
+
+    .hero-bar {
+      width: 3px;
+      height: 28px;
+      background: var(--black);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .hero-rotating {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 500;
+      color: var(--black);
+      min-height: 32px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--black);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: var(--mid);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-top: 16px;
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards 0.55s;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.8; }
+
+    .btn-secondary {
+      border: 0.5px solid var(--border);
+      color: var(--mid);
+      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--black); color: var(--black); }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section {
+      padding: 80px 5%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 32px;
+    }
+
+    /* ── WHAT I DO ── */
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+
+    .card-icon { font-size: 28px; margin-bottom: 12px; }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    /* ── PROJECTS ── */
+    .project-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      background: #e8e8ed;
+      color: var(--black);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-right: 4px;
+      margin-top: 8px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .project-link:hover { opacity: 0.6; }
+
+    /* ── LAW FIRM READY ── */
+    .founder-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 28px 24px;
+    }
+
+    .founder-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .founder-desc {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ── CERTIFICATION ── */
+    .cert-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cert-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .cert-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 3px;
+    }
+
+    .cert-desc {
+      font-size: 13px;
+      color: var(--mid);
+    }
+
+    .cert-link {
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .cert-link:hover { opacity: 0.6; }
+
+    /* ── WRITING (DARK) ── */
+    #writing {
+      background: var(--black);
+      max-width: 100%;
+      padding: 80px 5%;
+    }
+
+    #writing .inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    #writing .section-label { color: #6e6e73; }
+
+    #writing .section-title { color: var(--white); }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .writing-card {
+      background: var(--dark-card);
+      border-radius: 16px;
+      padding: 24px 20px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .writing-card:hover { opacity: 0.85; }
+
+    .writing-cat {
+      font-size: 11px;
+      color: #6e6e73;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .writing-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .writing-desc {
+      font-size: 13px;
+      color: #86868b;
+      line-height: 1.5;
+    }
+
+    .writing-read {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      margin-top: 16px;
+    }
+
+    /* ── CONTACT (DARK) ── */
+    #contact {
+      background: var(--black);
+      border-top: 0.5px solid #3a3a3c;
+      max-width: 100%;
+      padding: 60px 5%;
+    }
+
+    #contact .inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .contact-email {
+      font-size: 15px;
+      color: #86868b;
+      margin-bottom: 28px;
+    }
+
+    .contact-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-pill {
+      background: var(--dark-card);
+      color: var(--white);
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .contact-pill:hover { opacity: 0.7; }
+
+    .footer-copy {
+      margin-top: 48px;
+      font-size: 12px;
+      color: #6e6e73;
+    }
+
+    /* ── FULL-WIDTH WRAPPERS ── */
+    .full-width {
+      width: 100%;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .cards-3 { grid-template-columns: 1fr; }
+      .writing-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .cards-3 { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-name">Jyotirmoy Nath</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+  </nav>
+
+  <!-- HERO -->
+  <div id="home" style="width:100%;">
+    <div style="max-width:900px; margin:0 auto; padding:120px 5% 80px; min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
+      <h1 class="hero-name">Hi, I'm Jyotirmoy Nath</h1>
+      <div class="hero-rotating-wrap">
+        <div class="hero-bar"></div>
+        <div class="hero-rotating" id="rotating-text">Lawyer turned AI builder<span class="cursor"></span></div>
+      </div>
+      <p class="hero-sub">I build AI tools for legal workflows — and I understand the domain problems they actually need to solve.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">See my work ↓</a>
+        <a href="https://linkedin.com" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <section id="work" style="max-width:900px; margin:0 auto;">
+    <div class="section-label">What I do</div>
+    <div class="cards-3">
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <div class="card-title">Legal expertise</div>
+        <div class="card-desc">VC deals, term sheets, PE/M&amp;A transactions</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">AI builder</div>
+        <div class="card-desc">Vibe coding legal tools with Replit &amp; Lovable</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <div class="card-title">Founder</div>
+        <div class="card-desc">Built &amp; ran Law Firm Ready for 2 years</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI PROJECTS -->
+  <section style="max-width:900px; margin:0 auto; padding-top:0;">
+    <div class="section-label">What I've built</div>
+    <div class="cards-3">
+      <div class="project-card">
+        <div>
+          <div class="card-title">Term Sheet Analyzer</div>
+          <div class="card-desc">AI extraction of key clauses from VC term sheets — valuation, liquidation preference, anti-dilution and more.</div>
+          <div>
+            <span class="tag">AI</span>
+            <span class="tag">Legal</span>
+            <span class="tag">VC</span>
+          </div>
+        </div>
+        <a class="project-link" href="https://term-sheet-ai--rccelection.replit.app/" target="_blank">View app ↗</a>
+      </div>
+      <div class="project-card">
+        <div>
+          <div class="card-title">Stamp Duty Calculator</div>
+          <div class="card-desc">Calculates stamp duty for Indian property and transaction documents. Currently covers Maharashtra.</div>
+          <div>
+            <span class="tag">Calculator</span>
+            <span class="tag">India</span>
+            <span class="tag">Legal</span>
+          </div>
+        </div>
+        <a class="project-link" href="https://stamp-shastra-calculator.lovable.app/" target="_blank">View app ↗</a>
+      </div>
+      <div class="project-card">
+        <div>
+          <div class="card-title">CS Items Tracker</div>
+          <div class="card-desc">Post-closing checklist tracker for PE/VC deals — MCA filings, share certificates, and deal action items.</div>
+          <div>
+            <span class="tag">Tracker</span>
+            <span class="tag">PE/VC</span>
+            <span class="tag">Ops</span>
+          </div>
+        </div>
+        <a class="project-link" href="https://post-closing-tracker.lovable.app/" target="_blank">View app ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAW FIRM READY -->
+  <section style="max-width:900px; margin:0 auto; padding-top:0;">
+    <div class="section-label">Founder</div>
+    <div class="founder-card">
+      <div class="founder-title">Law Firm Ready</div>
+      <p class="founder-desc">Mentorship platform connecting law students with professionals at top law firms. Ran for 2 years — built the community, ran marketing, managed operations, and produced content end-to-end.</p>
+      <div style="margin-top:14px;">
+        <span class="tag">Founder</span>
+        <span class="tag">Community</span>
+        <span class="tag">EdTech</span>
+        <span class="tag">2 yrs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATION -->
+  <section style="max-width:900px; margin:0 auto; padding-top:0; padding-bottom:80px;">
+    <div class="section-label">Certification</div>
+    <div class="cert-card">
+      <div class="cert-icon">🏅</div>
+      <div>
+        <div class="cert-name">AI for Legal Basics — Harvey AI Academy</div>
+        <div class="cert-desc">Foundational certification in legal AI, responsible use, prompting &amp; output evaluation</div>
+      </div>
+      <a href="https://academy.harvey.ai/ai-for-legal-basics" target="_blank" class="cert-link">View cert ↗</a>
+    </div>
+  </section>
+
+  <!-- WRITING — DARK -->
+  <div class="full-width" id="writing" style="background:var(--black); padding:80px 5%;">
+    <div style="max-width:900px; margin:0 auto;">
+      <div class="section-label" style="color:#6e6e73;">Writing</div>
+      <div class="section-title" style="color:var(--white);">Writing &amp; thinking.</div>
+      <div class="writing-grid">
+        <a href="#" class="writing-card">
+          <div>
+            <div class="writing-cat">Legal AI</div>
+            <div class="writing-title">Coming soon</div>
+            <div class="writing-desc">Thoughts on how AI is changing legal workflows and what lawyers should actually know about it.</div>
+          </div>
+          <div class="writing-read">Read →</div>
+        </a>
+        <a href="#" class="writing-card">
+          <div>
+            <div class="writing-cat">Startups</div>
+            <div class="writing-title">Coming soon</div>
+            <div class="writing-desc">Observations from working in early-stage legal and watching how founders approach contracts.</div>
+          </div>
+          <div class="writing-read">Read →</div>
+        </a>
+        <a href="#" class="writing-card">
+          <div>
+            <div class="writing-cat">Law Firm Ready</div>
+            <div class="writing-title">Coming soon</div>
+            <div class="writing-desc">What I learnt running a legal mentorship platform — community, operations, and what worked.</div>
+          </div>
+          <div class="writing-read">Read →</div>
+        </a>
+        <a href="#" class="writing-card">
+          <div>
+            <div class="writing-cat">Vibe coding</div>
+            <div class="writing-title">Coming soon</div>
+            <div class="writing-desc">How a lawyer with no CS background shipped three legal AI tools using Replit and Lovable.</div>
+          </div>
+          <div class="writing-read">Read →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="full-width" id="contact" style="background:var(--black); border-top:0.5px solid #3a3a3c; padding:60px 5%;">
+    <div style="max-width:900px; margin:0 auto;">
+      <div class="contact-title">Open to full-time roles &amp; select freelance projects.</div>
+      <div class="contact-email">jyotirmoy.nath2026@gmail.com</div>
+      <div class="contact-pills">
+        <a href="mailto:jyotirmoy.nath2026@gmail.com" class="contact-pill">📧 Email</a>
+        <a href="https://linkedin.com" target="_blank" class="contact-pill">💼 LinkedIn</a>
+      </div>
+      <div class="footer-copy">© 2026 Jyotirmoy Nath</div>
+    </div>
+  </div>
+
+  <script>
+    const phrases = [
+      "Lawyer turned AI builder",
+      "Founder of Law Firm Ready",
+      "Building legal tech tools",
+      "Bridging law and technology"
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    const el = document.getElementById("rotating-text");
+
+    function type() {
+      const current = phrases[phraseIndex];
+      const cursor = '<span class="cursor"></span>';
+
+      if (!deleting) {
+        charIndex++;
+        el.innerHTML = current.slice(0, charIndex) + cursor;
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(type, 2000);
+          return;
+        }
+      } else {
+        charIndex--;
+        el.innerHTML = current.slice(0, charIndex) + cursor;
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+
+      setTimeout(type, deleting ? 40 : 70);
+    }
+
+    setTimeout(type, 1200);
+  </script>
+
+</body>
+</html>
