@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>I'm a Corporate Lawyer Who Started Using AI. Here's What Actually Surprised Me — Jyotirmoy Nath</title>
+<meta name="description" content="Three and a half years in transactional law. Here is what actually changed when I stopped ignoring AI and started using it." />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ink: #1a1814;
+  --muted: #6b6560;
+  --rule: #e2ddd8;
+  --bg: #faf8f5;
+  --accent: #c0392b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,248,245,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--rule);
+  padding: 0 5%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.back-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--ink); }
+
+/* ARTICLE */
+.article-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
+}
+
+.article-cat {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.article-lede {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #3d3830;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+}
+
+.article-body p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #3d3830;
+  margin-bottom: 28px;
+}
+
+.article-body h2 {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ink);
+  margin: 52px 0 18px;
+}
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  margin: 40px 0;
+  padding: 4px 0 4px 24px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* AUTHOR FOOTER */
+.article-footer {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.author-bio {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.author-links {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.author-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  background: #ede9e3;
+  padding: 8px 16px;
+  border-radius: 980px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.author-link:hover { opacity: 0.7; }
+
+@media (max-width: 600px) {
+  .article-footer { flex-wrap: wrap; }
+  .author-links { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-name">Jyotirmoy Nath</a>
+  <a href="/#writing" class="back-link">← Writing</a>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <div class="article-cat">Corporate Law · AI in Practice</div>
+
+  <div class="article-meta">
+    <span>5 min read</span>
+  </div>
+
+  <h1>I'm a Corporate Lawyer Who Started Using AI. Here's What Actually Surprised Me.</h1>
+
+  <p class="article-lede">
+    Three and a half years in transactional law. Here is what actually changed when I stopped ignoring AI and started using it.
+  </p>
+
+  <div class="article-body">
+
+    <p>I came to AI the way most lawyers do: late, reluctantly, and because it became harder to ignore. My practice has been M&A, VC and PE deals, venture debt — the kind of transactional work where precision is the baseline expectation and sloppy drafting is not a stylistic choice, it is a professional failure. The idea that a language model could be useful in that context felt, for a while, like a claim designed for people who had not actually done the work.</p>
+
+    <p>Then I started using it. What I found was more specific — and more instructive — than the general noise around AI would suggest.</p>
+
+    <h2>It started with emails, not contracts</h2>
+
+    <p>The first thing I tried was not a due diligence checklist or an agreement. It was email drafting, which is unglamorous but where you spend an uncomfortable amount of time in practice.</p>
+
+    <p>ChatGPT wrote well enough but had the wrong instincts. Too warm, too hedged. It kept softening things that did not need softening. Legal communication is direct by design — positions are stated clearly, timelines are firm, qualifications are deliberate. ChatGPT rounded edges that were supposed to stay sharp.</p>
+
+    <p>Claude read differently. Crisper. Less performative. The emails felt closer to how a transactional lawyer actually writes. That was the first thing that shifted my thinking: these tools are not interchangeable. They have different defaults, and which one you reach for matters.</p>
+
+    <h2>The FEMA Press Note 3 presentation</h2>
+
+    <p>The moment that genuinely surprised me came during a regulatory update assignment. A government notification had amended the FEMA Press Note 3 framework — one of those dense policy changes that requires careful unpacking before it becomes a usable client-facing document. I had already done the work: read through the notification, identified the substantive changes, built a draft slide structure.</p>
+
+    <p>Then I ran the same task through Claude, with a clear prompt but no special setup. No system configuration, no coding, no API — just Claude Chat on a free account.</p>
+
+    <p>What came back was accurate on the substance and structured better than my first cut. The surprise was not the quality itself. It was the absence of friction I had assumed would be there. I had expected a gap between what I asked for and what came back — some iteration required to get it to a usable state. There was not, at least not on that task. That recalibrated my assumptions about where the tool is actually useful.</p>
+
+    <h2>Where it breaks down</h2>
+
+    <p>The ceiling most lawyers hit early is real, and it is specific. Claude does not know your firm's templates. Every transactional practice has its own drafting conventions: preferred formulations for representations and warranties, clause structures that reflect how particular partners think about risk allocation, formatting standards that have been refined across hundreds of deals. Ask Claude to draft a share purchase agreement from scratch and you will get something competent and entirely generic. In a law firm context, that is not usable output — it is a liability, because it looks like a starting point when it is actually a distraction.</p>
+
+    <blockquote>The fix is not to abandon the tool. It is to stop asking it to work without context. Feed it your precedent, specify what needs to change and why, and it becomes a useful drafting assistant. Without the template, it is guessing at a style it has never seen.</blockquote>
+
+    <p>This is less a limitation of the tool than a clarification of what it is. Claude is not a lawyer. It does not know your deal, your client's risk appetite, or how your supervising partner thinks about a particular clause. The legal judgment has to come from you. What the tool can do is reduce the friction between that judgment and a usable first draft — if you give it the right inputs.</p>
+
+    <h2>What I actually use it for</h2>
+
+    <p>Before any task that requires structure, I open Claude first. Regulatory summaries, presentation frameworks, due diligence checklists, first-cut issue spotting on a new matter. Not to replace the analysis, but to get past the blank page faster and make sure I am not missing an obvious structural element before I start building.</p>
+
+    <p>The Projects feature on Claude.ai has been the more significant unlock. It lets you store instructions and context that carry across conversations — your preferred formats, deal-specific parameters, recurring client context. For transactional work, where the same types of tasks recur across matters, that means you can set the context once and not re-explain it every time. That is where the tool starts saving real time rather than marginal effort.</p>
+
+    <h2>The skill that actually matters</h2>
+
+    <p>The lawyers who will get the most out of these tools are not the ones who give it the most tasks. They are the ones who learn to brief it well — who know what context to provide, what constraints to specify, and where the output needs their judgment before it is usable. That skill takes longer to build than most people expect, and it is not the same as being technically sophisticated.</p>
+
+    <p>It is closer to knowing how to delegate: being clear about what you need, what you already have, and where the other party should not make assumptions on your behalf. That is a professional skill, not a technical one. And it turns out to be the thing that determines whether AI saves you time or creates more work.</p>
+
+    <p style="font-size: 14px; color: var(--muted); margin-top: 48px;">Personal observations from practice. Nothing here constitutes legal advice.</p>
+
+  </div>
+
+  <!-- AUTHOR FOOTER -->
+  <div class="article-footer">
+    <div class="author-avatar">J</div>
+    <div>
+      <div class="author-name">Jyotirmoy Nath</div>
+      <div class="author-bio">Lawyer · Founder · AI builder</div>
+    </div>
+    <div class="author-links">
+      <a href="https://in.linkedin.com/in/jyotirmoy-nath-26531714b" target="_blank" class="author-link">LinkedIn ↗</a>
+      <a href="/" class="author-link">Portfolio</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
