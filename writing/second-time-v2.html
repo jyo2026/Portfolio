@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What working a seed deal with a second-time founder taught me about client management — Jyotirmoy Nath</title>
+<meta name="description" content="A practitioner's observations on founder dynamics, legal judgment under pressure, and what early-stage deals actually teach you about client management." />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1a1814;
+    --muted: #6b6560;
+    --rule: #e2ddd8;
+    --bg: #faf8f5;
+    --accent: #c0392b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,248,245,0.88);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid var(--rule);
+    padding: 0 5%;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .back-link {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--ink); }
+
+  /* ARTICLE */
+  .article-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 100px 24px 120px;
+  }
+
+  .article-cat {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+
+  .article-meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .article-lede {
+    font-family: 'Lora', serif;
+    font-size: 19px;
+    line-height: 1.65;
+    color: #3d3830;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--rule);
+    font-style: italic;
+  }
+
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #3d3830;
+    margin-bottom: 28px;
+  }
+
+  .article-body h2 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--ink);
+    margin: 52px 0 18px;
+  }
+
+  blockquote {
+    border-left: 2px solid var(--rule);
+    margin: 40px 0;
+    padding: 4px 0 4px 24px;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* AUTHOR FOOTER */
+  .article-footer {
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .author-bio {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .author-links {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+  }
+
+  .author-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    background: #ede9e3;
+    padding: 8px 16px;
+    border-radius: 980px;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+
+  .author-link:hover { opacity: 0.7; }
+
+  @media (max-width: 600px) {
+    .article-footer { flex-wrap: wrap; }
+    .author-links { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-name">Jyotirmoy Nath</a>
+  <a href="/#writing" class="back-link">← Writing</a>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <div class="article-cat">Corporate Law · Early Stage Deals</div>
+
+  <div class="article-meta">
+    <span>5 min read</span>
+  </div>
+
+  <h1>What working a seed deal with a second-time founder taught me about client management</h1>
+
+  <p class="article-lede">
+    She had done this before. She knew the process. And that, I quickly realised, was exactly what made it interesting.
+  </p>
+
+  <div class="article-body">
+
+    <p>I recently worked on a seed round for a founder who had been through this before. She had spent time at a funded startup, understood the broad strokes of how VC transactions worked, and was raising from a serious table — Antler, Piper, and individual angels including Kunal Shah and Gaurav Munjal. She was not a first-timer walking into an SHA for the first time. That, I quickly learned, creates its own dynamics.</p>
+
+    <h2>Half-knowledge is a different challenge than no knowledge</h2>
+
+    <p>First-time founders tend to defer to their lawyers. They know they don't know, so they ask. Founders who have been through a round before arrive with a working mental model of the process, which is mostly a good thing, until it isn't. This founder knew what the documents were. She had a sense of the negotiation flow. What she did not always have was a feel for why certain things needed to slow down before they moved. That gap, between knowing the process and understanding the legal substance, is where friction quietly lives in these deals.</p>
+
+    <h2>The holding email that became a flashpoint</h2>
+
+    <p>At one point, we had received a draft from investor counsel with redlines. Most changes were fine. But my senior needed to review one specific legal point before we reverted. Standard practice. We sent a holding email to investor counsel in the meantime. The founder felt we were unnecessarily stalling the negotiation and that we should have just sent the document out. She escalated to my senior.</p>
+
+    <p>My senior did not apologise for the hold. They explained it. That moment stuck with me. There is a version of that conversation where a lawyer caves to keep the client comfortable and sends out a document without the check. That is not client service. That is the lawyer outsourcing their judgment under pressure. The holding email was the job.</p>
+
+    <blockquote>Founders optimise for momentum. Lawyers optimise for protection. The friction between those two instincts is not a bug in the relationship. It is the whole point of having counsel.</blockquote>
+
+    <h2>But the same founder also moved the deal forward in ways we couldn't</h2>
+
+    <p>When investor counsel was not budging on points that did not need to be fought over, she picked up the phone and called the investors directly. The deal moved. There were moments of genuine commercial instinct at work, a founder who understood when to push and when to let go, that no amount of lawyer correspondence could have replicated.</p>
+
+    <p>On my senior's birthday, we had gone out on a Friday evening. I messaged her to ask if we could pause follow-ups for the night, given we had a Saturday call already locked in. She agreed without hesitation. That kind of grace, in a fast-moving deal, is worth noting.</p>
+
+    <h2>What this deal clarified for me</h2>
+
+    <p>A lawyer's job in an early-stage deal is not just to draft and negotiate. It is sometimes to hold a position your client disagrees with, explain it clearly, and move forward together once they understand it. The way you hold that position matters as much as the fact that you hold it. Condescension closes the conversation. Clarity keeps it open.</p>
+
+    <p>Founders who have done this before are not easier clients. They are more interesting ones. They will test your judgment in ways first-timers will not. That is, I think, exactly where the practice gets good.</p>
+
+    <p style="font-size: 14px; color: var(--muted); margin-top: 48px;">Personal observations from practice. Nothing here constitutes legal advice. Names and deal details have been kept deliberately general.</p>
+
+  </div>
+
+  <!-- AUTHOR FOOTER -->
+  <div class="article-footer">
+    <div class="author-avatar">J</div>
+    <div>
+      <div class="author-name">Jyotirmoy Nath</div>
+      <div class="author-bio">Lawyer · Founder · AI builder</div>
+    </div>
+    <div class="author-links">
+      <a href="https://in.linkedin.com/in/jyotirmoy-nath-26531714b" target="_blank" class="author-link">LinkedIn ↗</a>
+      <a href="/" class="author-link">Portfolio</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
