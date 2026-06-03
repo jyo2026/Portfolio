@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>I'm a Corporate Lawyer Who Vibe Coded a Deal Tracker. Here's What That Actually Means — Jyotirmoy Nath</title>
+<meta name="description" content="The Excel sheet worked. That was the problem. On why I built a Conditions Subsequent tracker for VC deals — and what the gap between MVP and production reveals about how law firms think about process." />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ink: #1a1814;
+  --muted: #6b6560;
+  --rule: #e2ddd8;
+  --bg: #faf8f5;
+  --accent: #c0392b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,248,245,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--rule);
+  padding: 0 5%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.back-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--ink); }
+
+.article-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
+}
+
+.article-cat {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.article-lede {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #3d3830;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+}
+
+.article-body p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #3d3830;
+  margin-bottom: 28px;
+}
+
+.article-body h2 {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ink);
+  margin: 52px 0 18px;
+}
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  margin: 40px 0;
+  padding: 4px 0 4px 24px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.article-footer {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.author-bio {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.author-links {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.author-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  background: #ede9e3;
+  padding: 8px 16px;
+  border-radius: 980px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.author-link:hover { opacity: 0.7; }
+
+@media (max-width: 600px) {
+  .article-footer { flex-wrap: wrap; }
+  .author-links { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Jyotirmoy Nath</a>
+  <a href="/#writing" class="back-link">← Writing</a>
+</nav>
+
+<div class="article-wrap">
+
+  <div class="article-cat">Corporate Law · AI in Practice</div>
+
+  <div class="article-meta">
+    <span>5 min read</span>
+  </div>
+
+  <h1>I'm a Corporate Lawyer Who Vibe Coded a Deal Tracker. Here's What That Actually Means.</h1>
+
+  <p class="article-lede">
+    The Excel sheet worked. That was the problem.
+  </p>
+
+  <div class="article-body">
+
+    <p>Post-closing in a VC or PE transaction is not glamorous work. The SHA is signed, the funds have transferred, and what remains is a list of Conditions Subsequent ("CS items") that need to be completed within defined timelines. Filing Form PAS-3 with the RoC within 30 days of allotment. Issuing share certificates within 60 days. Stamping, updating the Register of Members, circulating the letter of allotments. Board resolutions certified and delivered. FC-GPR filings on the RBI's FIRMS portal. The list is long, the parties are multiple, and the consequences of missing a deadline range from regulatory penalties to investor friction.</p>
+
+    <p>We tracked all of it on a shared Excel sheet. Columns for the item, the responsible party, the deadline, the status. The link went to investors, to the founder's team, to the company secretary. As the transactional lawyer, I would update it for the legal tasks — stamp paper procurement, MCA filings, coordinating with the CS — and follow up with the client's point of contact for items on the company's side.</p>
+
+    <p>It worked. That was the problem.</p>
+
+    <h2>What "working" was actually costing</h2>
+
+    <p>The Excel tracker did not fail in any dramatic way. CS items got completed. Filings were made. Deals closed cleanly. But two things consistently created friction that I had come to accept as inherent to the process.</p>
+
+    <p>The first was the status column. In practice, a CS item is never simply "pending" or "done." It is waiting for stamp papers from a vendor. It is drafted and with the client for signature. It is filed and awaiting MCA processing. The moment you try to capture that nuance in a free-text cell, you are either too verbose — and investors stop reading — or too vague — and they follow up asking what is actually happening. The status column became something I dreaded updating because whatever I wrote felt like the wrong level of detail for someone on the other end.</p>
+
+    <p>The second was visual. Investors and founders read this tracker differently than I do. I know what every row means because I built it. For a founder seeing it for the first time, or an investor's associate checking progress on a deal they closed two weeks ago, an Excel sheet with colour-coded cells communicates very little about the actual state of the transaction. It looks like administrative overhead, not professional progress reporting.</p>
+
+    <h2>Building it without writing code</h2>
+
+    <p>I had no prior experience building software. What I had was a clear mental model of what the tracker needed to do — because I had been doing it manually for long enough to know exactly where it broke down.</p>
+
+    <p>I described the problem to Lovable: a Conditions Subsequent tracker for SHA/SSA fundraising deals, with discrete status stages (Not Started, In Progress, Waiting for Revert, Completed), sub-tasks within each CS item, and the ability to assign responsibility to either the legal team or the client. The output was a working interface in a single session. No code written. No technical decisions made. Just a clear brief about a workflow I understood well.</p>
+
+    <p>The result — the tracker at post-closing-tracker.lovable.app — does what the Excel sheet never could. A CS item like "Issuance of Share Certificates" shows its stage, its sub-tasks, and its progress (1 of 2 sub-tasks complete) in a format that an investor can read without context. "Waiting for Revert — Client" communicates more precisely than any status cell I ever typed. The visual hierarchy maps to how the transaction actually progresses, not how a spreadsheet is structured.</p>
+
+    <blockquote>The insight was not that I could build software. It was that knowing the workflow precisely enough to brief someone — human or AI — is the same skill whether you are delegating to a junior lawyer or prompting a no-code tool.</blockquote>
+
+    <h2>Where it currently breaks</h2>
+
+    <p>The honest limitation is significant. The tracker was built on Lovable's free tier, and when the credit limit expired, persistence went with it. Every time someone opens the link now, the items and statuses reset to the default state. It is a functional demonstration of the workflow, not a deployable tool. For actual use on a live deal, it is not usable in its current form.</p>
+
+    <p>That gap — between a working MVP and something you can actually put in front of investors on a transaction — is more instructive than the build itself. The interface problem is solved. The data layer is not. Persistent memory, deal-specific configurations, the ability to load a fresh CS checklist for a new matter without rebuilding from scratch — these are the things that make the difference between a prototype and a professional tool. And they require infrastructure decisions that go beyond what a prompt can solve.</p>
+
+    <h2>What this clarified about law firm process</h2>
+
+    <p>Transactional law firms have not historically thought about internal tooling as something they build. They buy software (practice management systems, document management platforms) or they use what they have (Excel, Word, email). The idea that a lawyer might identify a workflow gap and build something to fill it — in an afternoon, without an IT department — is genuinely new.</p>
+
+    <p>What vibe coding makes available is not the ability to replace legal judgment with software. The CS items still need to be identified correctly. The deadlines still need to be tracked by someone who knows the regulatory consequences of missing them. The coordination with the company secretary, the client's CFO, the investor's team — none of that is automated. What changes is the surface you use to manage and communicate all of it. That surface can now be purpose-built for the specific workflow, rather than adapted from a generic tool that was not designed for post-closing transaction management.</p>
+
+    <p>The Excel sheet worked. It will keep working for lawyers who have not tried the alternative. But having built something better — even incompletely — I find it hard to go back to updating status cells and hoping the investor reads them correctly.</p>
+
+    <p style="font-size: 14px; color: var(--muted); margin-top: 48px;">Personal observations from practice. Nothing here constitutes legal advice.</p>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-avatar">J</div>
+    <div>
+      <div class="author-name">Jyotirmoy Nath</div>
+      <div class="author-bio">Lawyer · Founder · AI builder</div>
+    </div>
+    <div class="author-links">
+      <a href="https://in.linkedin.com/in/jyotirmoy-nath-26531714b" target="_blank" class="author-link">LinkedIn ↗</a>
+      <a href="/" class="author-link">Portfolio</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
