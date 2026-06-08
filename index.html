@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jyotirmoy Nath — Corporate lawyer turned AI builder. I build practical AI tools for legal workflows and write about law, technology and work." />
   <title>Jyotirmoy Nath — Lawyer, AI Builder, Founder</title>
+  <meta name="description" content="Corporate lawyer turned AI builder. I build practical AI tools for legal workflows and write about law, technology and work." />
 
   <style>
     /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     /* ── Tokens ── */
     :root {
-      --white:   #ffffff;
-      --off-white: #fafafa;
-      --black:   #111111;
-      --black-card: #1a1a1a;
+      --black:        #111111;
+      --black-card:   #1a1a1a;
       --black-border: #2a2a2a;
-      --red:     #c0392b;
-      --gray-mid: #555555;
-      --gray-light: #e0e0e0;
-      --gray-subtle: #f2f2f2;
-      --text-muted-dark: #888888;
-      --text-muted-darker: #666666;
-      --font: 'Georgia', 'Times New Roman', serif; /* article-feel for headlines */
-      --font-ui: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --white:        #ffffff;
+      --off-white:    #fafafa;
+      --red:          #c0392b;
+      --gray-mid:     #555555;
+      --gray-light:   #e0e0e0;
+      --gray-subtle:  #f2f2f2;
+      --blue:         #2e6da4;
+      --font-serif:   Georgia, 'Times New Roman', serif;
+      --font-ui:      -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-ui);
@@ -41,17 +39,18 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--white);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 0.5px solid var(--gray-light);
-      padding: 0 8rem;
       height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 5%;
     }
 
     .nav-logo {
-      font-family: var(--font-ui);
       font-size: 14px;
       font-weight: 500;
       color: var(--black);
@@ -86,77 +85,24 @@
     }
     .nav-cta:hover { opacity: .78; }
 
-    /* ── HERO — white ── */
-    #home {
-      background: var(--white);
-      padding: 12rem 2.5rem 11rem;
-      display: grid;
-      grid-template-columns: 1fr 200px;
-      gap: 3rem;
-      align-items: start;
-      border-bottom: 0.5px solid var(--gray-light);
+    /* ── SHARED CONTAINER ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .hero-eyebrow {
-      font-size: 11px;
-      letter-spacing: .12em;
+    /* ── SECTION EYEBROW ── */
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--red);
       font-weight: 500;
-      margin-bottom: .75rem;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-h1 {
-      font-family: var(--font);
-      font-size: 46px;
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--black);
-      margin-bottom: 1.25rem;
-      letter-spacing: -.5px;
-    }
-
-    /* rotating credibility ticker */
-    .cred-strip {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1.25rem;
-      min-height: 22px;
-    }
-
-    .cred-bar {
-      width: 2px;
-      height: 16px;
-      background: #2E6DA4;
-      flex-shrink: 0;
-    }
-
-    .cred-text {
-      font-size: 14px;
-      color: #2E6DA4;
-      font-weight: 400;
-      transition: opacity .3s ease, transform .3s ease;
-    }
-    .cred-text.fade-out {
-      opacity: 0;
-      transform: translateY(-6px);
-    }
-
-    .hero-sub {
-      font-size: 15px;
-      color: var(--gray-mid);
-      line-height: 1.7;
-      max-width: 420px;
-      margin-bottom: 2rem;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: .75rem;
-      flex-wrap: wrap;
-    }
-
+    /* ── BUTTONS ── */
     .btn-dark {
       background: var(--black);
       color: var(--white);
@@ -187,6 +133,89 @@
     }
     .btn-ghost:hover { border-color: var(--black); color: var(--black); }
 
+    /* ════════════════════════════
+       HERO — white
+    ════════════════════════════ */
+    #home {
+      background: var(--white);
+      border-bottom: 0.5px solid var(--gray-light);
+      padding: 5% 5%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 500;
+      margin-bottom: .75rem;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+      letter-spacing: -.5px;
+    }
+
+    /* credibility ticker */
+    .cred-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+      min-height: 22px;
+    }
+
+    .cred-bar {
+      width: 2px;
+      height: 16px;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .cred-text {
+      font-size: 14px;
+      color: var(--blue);
+      font-weight: 400;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .cred-text.fade-out {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
     /* photo placeholder */
     .photo-slot {
       width: 200px;
@@ -214,27 +243,20 @@
       stroke-linejoin: round;
     }
 
-    /* ── SECTION SHARED ── */
-    .section-eyebrow {
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--red);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── FEATURED ARTICLE — black ── */
+    /* ════════════════════════════
+       FEATURED ARTICLE — black
+    ════════════════════════════ */
     #featured {
       background: var(--black);
-      padding: 3rem 2.5rem;
+      padding: 4rem 5%;
     }
 
     .feat-card {
+      max-width: 900px;
+      margin: 0 auto;
       border: 0.5px solid var(--black-border);
       border-radius: 10px;
       padding: 2.25rem 2.5rem;
-      max-width: 720px;
     }
 
     .feat-tags {
@@ -261,7 +283,7 @@
     }
 
     .feat-h2 {
-      font-family: var(--font);
+      font-family: var(--font-serif);
       font-size: 26px;
       font-weight: 700;
       color: #f0f0f0;
@@ -289,14 +311,18 @@
     }
     .feat-link:hover { border-color: var(--white); }
 
-    /* ── PRODUCTS — white ── */
+    /* ════════════════════════════
+       PRODUCTS — white
+    ════════════════════════════ */
     #work {
       background: var(--white);
-      padding: 3rem 8rem;
+      padding: 4rem 5%;
       border-top: 0.5px solid var(--gray-light);
     }
 
     .prod-grid {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
@@ -342,7 +368,7 @@
 
     .prod-desc {
       font-size: 11.5px;
-      color: var(--text-muted-darker);
+      color: var(--gray-mid);
       line-height: 1.6;
       margin-bottom: .85rem;
     }
@@ -375,14 +401,18 @@
     }
     .prod-link:hover { border-color: var(--black); }
 
-    /* ── WRITING — black ── */
+    /* ════════════════════════════
+       WRITING — black
+    ════════════════════════════ */
     #writing {
       background: var(--black);
-      padding: 3rem 8rem;
+      padding: 4rem 5%;
       border-top: 0.5px solid var(--black-border);
     }
 
     .w-grid {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
@@ -409,7 +439,7 @@
     }
 
     .w-title {
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: #f0f0f0;
       font-weight: 500;
       line-height: 1.5;
@@ -425,23 +455,26 @@
 
     .w-read {
       font-size: 11.5px;
-      color: var(--text-muted-dark);
+      color: #888;
     }
     .w-card:hover .w-read { color: var(--white); }
 
-    /* ── CONTACT — white ── */
+    /* ════════════════════════════
+       CONTACT — white
+    ════════════════════════════ */
     #contact {
       background: var(--white);
-      padding: 3rem 8rem;
+      padding: 4rem 5%;
       border-top: 0.5px solid var(--gray-light);
     }
 
     .contact-inner {
-      max-width: 480px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .contact-h2 {
-      font-family: var(--font);
+      font-family: var(--font-serif);
       font-size: 28px;
       font-weight: 700;
       color: var(--black);
@@ -454,45 +487,61 @@
       color: var(--gray-mid);
       line-height: 1.7;
       margin-bottom: 1.75rem;
+      max-width: 480px;
     }
 
-    .contact-links {
-      display: flex;
-      gap: 1rem;
-    }
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 
     /* ── FOOTER ── */
     footer {
       background: var(--black);
-      padding: 1.5rem 8rem;
+      padding: 1.5rem 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-top: 0.5px solid var(--black-border);
     }
 
-    footer span {
-      font-size: 11.5px;
-      color: #555;
-    }
+    footer span { font-size: 11.5px; color: #555; }
 
-    /* ── RESPONSIVE ── */
+    /* ════════════════════════════
+       RESPONSIVE
+    ════════════════════════════ */
     @media (max-width: 768px) {
+      /* Hero */
       #home {
-        grid-template-columns: 1fr;
-        padding: 3rem 1.5rem 2.5rem;
+        padding: 3rem 5% 3rem;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
       }
       .photo-slot { display: none; }
-      .hero-h1 { font-size: 34px; }
-      nav { padding: 0 1.5rem; }
+      .hero-h1 { font-size: 32px; }
+      .hero-sub { font-size: 14px; max-width: 100%; }
+
+      /* Nav */
       .nav-links { display: none; }
-      #featured, #work, #writing, #contact, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+      /* Featured article */
+      #featured { padding: 2.5rem 5%; }
+      .feat-card { padding: 1.5rem; }
+      .feat-h2 { font-size: 20px; }
+      .feat-desc { font-size: 13px; }
+
+      /* Products */
+      #work { padding: 2.5rem 5%; }
       .prod-grid { grid-template-columns: 1fr; }
+
+      /* Writing */
+      #writing { padding: 2.5rem 5%; }
       .w-grid { grid-template-columns: 1fr; }
+      .w-title { font-size: 15px; }
+
+      /* Contact */
+      #contact { padding: 2.5rem 5%; }
+      footer { padding: 1.25rem 5%; }
     }
   </style>
 </head>
@@ -510,40 +559,44 @@
     <a href="#contact" class="nav-cta">Let's talk</a>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — white -->
   <section id="home">
-    <div>
-      <p class="hero-eyebrow">Hi, I'm A</p>
-      <h1 class="hero-h1">Corporate lawyer<br>turned AI builder.</h1>
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">Hi, I'm</p>
+        <h1 class="hero-h1">Corporate lawyer<br>turned AI builder.</h1>
 
-      <div class="cred-strip">
-        <div class="cred-bar"></div>
-        <span class="cred-text" id="cred-text">PE/VC Corporate Lawyer</span>
+        <div class="cred-strip">
+          <div class="cred-bar"></div>
+          <span class="cred-text" id="cred-text">PE/VC Corporate Lawyer</span>
+        </div>
+
+        <p class="hero-sub">
+          I build practical AI tools for legal workflows and write about law, technology and work.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#work" class="btn-dark">Explore my work ↓</a>
+          <a href="#writing" class="btn-ghost">Read my writing →</a>
+        </div>
       </div>
 
-      <p class="hero-sub">
-        I build practical AI tools for legal workflows and write about law, technology and work.
-      </p>
-
-      <div class="hero-btns">
-        <a href="#work" class="btn-dark">Explore my work ↓</a>
-        <a href="#writing" class="btn-ghost">Read my writing →</a>
+      <!-- Replace this div with an <img> tag when your photo is ready:
+           <img src="assets/photo.jpg" alt="Jyotirmoy Nath"
+                style="width:200px;height:240px;border-radius:10px;object-fit:cover;"> -->
+      <div class="photo-slot">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Your photo here</span>
       </div>
-    </div>
-
-    <!-- PHOTO — replace src with your image path, e.g. src="assets/photo.jpg" -->
-    <div class="photo-slot" id="photo-slot">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-      </svg>
-      <span>Your photo here</span>
     </div>
   </section>
 
-  <!-- FEATURED ARTICLE -->
+  <!-- FEATURED ARTICLE — black -->
   <section id="featured">
-    <p class="section-eyebrow">Featured insight</p>
+    <p class="eyebrow" style="max-width:900px;margin:0 auto 1.5rem;">Featured insight</p>
     <div class="feat-card">
       <div class="feat-tags">
         <span class="feat-tag">Corporate Law</span>
@@ -557,14 +610,19 @@
     </div>
   </section>
 
-  <!-- PRODUCTS -->
+  <!-- PRODUCTS — white -->
   <section id="work">
-    <p class="section-eyebrow">Selected work</p>
+    <p class="eyebrow" style="max-width:900px;margin:0 auto 1.5rem;">Selected work</p>
     <div class="prod-grid">
 
       <div class="prod-card">
         <div class="prod-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
         </div>
         <p class="prod-title">Term Sheet Analyzer</p>
         <p class="prod-desc">AI extraction of key clauses from VC term sheets — valuation, liquidation preference, anti-dilution and more.</p>
@@ -578,7 +636,11 @@
 
       <div class="prod-card">
         <div class="prod-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
         </div>
         <p class="prod-title">Stamp Duty Calculator</p>
         <p class="prod-desc">Calculates stamp duty for Indian property and transaction documents. Currently covers Maharashtra.</p>
@@ -592,7 +654,10 @@
 
       <div class="prod-card">
         <div class="prod-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
         </div>
         <p class="prod-title">CS Items Tracker</p>
         <p class="prod-desc">Post-closing checklist tracker for PE/VC deals — MCA filings, share certificates, and deal action items.</p>
@@ -607,9 +672,9 @@
     </div>
   </section>
 
-  <!-- WRITING -->
+  <!-- WRITING — black -->
   <section id="writing">
-    <p class="section-eyebrow">Writing</p>
+    <p class="eyebrow" style="max-width:900px;margin:0 auto 1.5rem;">Writing</p>
     <div class="w-grid">
 
       <a href="writing/second-time-v2.html" class="w-card">
@@ -635,7 +700,7 @@
 
       <a href="writing/vibe-code.html" class="w-card">
         <p class="w-tag">Vibe Coding</p>
-        <p class="w-title">I'm a corporate lawyer who cibe coded a deal tracker. Here's what that actually means.</p>
+        <p class="w-title">I'm a Corporate Lawyer Who Vibe Coded a Deal Tracker. Here's What That Actually Means.</p>
         <p class="w-desc">The Excel sheet worked. That was the problem.</p>
         <p class="w-read">Read →</p>
       </a>
@@ -643,10 +708,10 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT — white -->
   <section id="contact">
     <div class="contact-inner">
-      <p class="section-eyebrow">Get in touch</p>
+      <p class="eyebrow">Get in touch</p>
       <h2 class="contact-h2">Let's talk.</h2>
       <p class="contact-sub">Whether it's a legal-tech role, a project, or just a conversation about where law and AI are heading — I'm always open to a good conversation.</p>
       <div class="contact-links">
