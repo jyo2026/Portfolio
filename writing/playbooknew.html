@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Building a Legal Research Tool for Indian Term Sheets — Jyotirmoy Nath</title>
+<meta name="description" content="Why generic AI tools get Indian law wrong, how a RAG-based term sheet playbook was built in two weeks, and the technical architecture that makes it work." />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ink: #1a1814;
+  --muted: #6b6560;
+  --rule: #e2ddd8;
+  --bg: #faf8f5;
+  --accent: #c0392b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,248,245,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--rule);
+  padding: 0 5%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.back-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--ink); }
+
+/* ARTICLE */
+.article-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
+}
+
+.article-cat {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.article-lede {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #3d3830;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+}
+
+.article-body p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #3d3830;
+  margin-bottom: 28px;
+}
+
+.article-body h2 {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ink);
+  margin: 52px 0 18px;
+}
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  margin: 40px 0;
+  padding: 4px 0 4px 24px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* AUTHOR FOOTER */
+.article-footer {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.author-bio {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.author-links {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.author-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  background: #ede9e3;
+  padding: 8px 16px;
+  border-radius: 980px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.author-link:hover { opacity: 0.7; }
+
+@media (max-width: 600px) {
+  .article-footer { flex-wrap: wrap; }
+  .author-links { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-name">Jyotirmoy Nath</a>
+  <a href="/#writing" class="back-link">← Writing</a>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <div class="article-cat">Indian VC Law · Product Engineering</div>
+
+  <div class="article-meta">
+    <span>4 min read</span>
+    <span>·</span>
+    <span>26 June 2026</span>
+  </div>
+
+  <h1>Building a Legal Research Tool for Indian Term Sheets</h1>
+
+  <p class="article-lede">
+    Why generic AI tools get Indian law wrong, how a RAG-based term sheet playbook was built in two weeks, and the technical choices that made it work.
+  </p>
+
+  <div class="article-body">
+
+    <p>As AI absorbs routine junior work, legal associates are losing the learning that came with doing the foundational work themselves. Junior associates no longer get the opportunity to mark up term sheets, but they are still on calls and in negotiations. They are arriving without the preparation that marking up a term sheet used to force. That prior engagement with the document was where the real learning happened. Without it, observation replaces understanding.</p>
+
+    <p>This is a RAG-based legal research tool for Indian PE/VC term sheet negotiations, grounded in Companies Act 2013 and FEMA legislation. Junior associates can browse key clauses like liquidation preference, anti-dilution and drag-along, or ask specific questions about negotiating positions and receive structured, India-specific answers covering founder and investor counsel perspectives, market practice, and red flags.</p>
+
+    <h2>Built in two weeks, no budget, no engineering background</h2>
+
+    <p>I built this on the free version of Claude, working in sessions timed around the usage limits. The work ran in two parallel threads: one for the knowledge base, researching and encoding how Indian term sheet clauses are actually negotiated; and one for the front end, building an interface where the information is easy to find. Debugging happened by taking screenshots and dropping them into Claude chat.</p>
+
+    <p>The knowledge base is around 50 clause chunks structured as TypeScript objects. Each chunk carries the clause title, keywords, a legal flag with the relevant statutory reference, risk level, and separate founder and investor positions. The LLM only answers from the chunks passed to it. No independent research, no hallucination on questions outside the database.</p>
+
+    <h2>Why keyword scoring, not embeddings</h2>
+
+    <p>Most RAG implementations optimise for semantic similarity through embeddings and cosine distance. This system took a different path. A lawyer asking "Is this market standard?" needs a deterministic answer, not a fuzzy similarity score. They also need to see why a clause was surfaced. Embeddings are a black box. Keyword scores are transparent.</p>
+
+    <p>When a lawyer queries "liquidation," the retrieval function scores clauses on title match, keyword match, legal flag content, and risk level, with critical and high-risk clauses ranked higher. The <code style="font-family: 'Courier New', monospace; background: #ede9e3; padding: 2px 6px; border-radius: 3px; font-size: 15px; color: #2d4a2d;">lp-002</code> legal flag, for example, references Section 55 of the Companies Act 2013 read with Rule 9 of the Companies (Share Capital and Debentures) Rules 2014, which governs the issue of preference shares including participation rights. That reference surfaces because it is explicitly tagged, not inferred. The top five matches go to the LLM as context. Latency is sub-100ms.</p>
+
+    <h2>Where generic AI gets Indian law wrong</h2>
+
+    <p>Ask ChatGPT "Is a put option enforceable in Indian term sheets?" and it draws on UK case law, US contract law, and generic fintech guidance. The answer sounds credible. It is wrong. Indian law on this point is governed by the pricing guidelines under Rule 21(2)(c) of the NDI Rules 2019: a put option providing an absolute guaranteed exit price higher than FMV at the time of exercise violates those guidelines. A capped-IRR structure is permissible provided the payout at exercise does not exceed FMV at that point. The valuation must be certified by a SEBI-registered Merchant Banker or a Chartered Accountant — not an IBBI-registered Valuer, whose mandate runs under the Companies Act and the IBC, not FEMA. No generic tool gets that right without India-specific grounding.</p>
+
+    <blockquote>Generic tools guess. RAG systems retrieve and acknowledge when they do not know.</blockquote>
+
+    <p>When the query falls outside the knowledge base, the system returns "not covered in our knowledge base" rather than generating a plausible but unsupported answer. That boundary is the most important design decision in the system. A tool that acknowledges its limits is more useful to a practitioner than one that answers confidently outside its scope.</p>
+
+    <h2>What this architecture trades off</h2>
+
+    <p>The knowledge base is hand-curated, which means high quality for what is covered and real gaps elsewhere. The tool is intentionally narrow: term sheet clauses only, not SHA mechanics, not M&A precedent, not regulatory compliance checklists. Narrowness prevents hallucination. Breadth without depth is where RAG systems fail.</p>
+
+    <p>A version built on a firm's institutional knowledge would look different: more clauses, deeper coverage of multi-investor scenarios, integration with SHA templates and precedent, usage analytics to find the gaps. But this version proves the core point. Junior associates do not need AI to replace lawyers. They need AI to handle the foundation, the retrieval, the structure, the India-specific legal context, so they can focus on judgment, negotiation, and the relationships that matter.</p>
+
+    <p style="font-size: 14px; color: var(--muted); margin-top: 48px;">Personal observations from practice. Nothing here constitutes legal advice.</p>
+
+  </div>
+
+  <!-- AUTHOR FOOTER -->
+  <div class="article-footer">
+    <div class="author-avatar">J</div>
+    <div>
+      <div class="author-name">Jyotirmoy Nath</div>
+      <div class="author-bio">Corporate Lawyer · AI builder</div>
+    </div>
+    <div class="author-links">
+      <a href="https://in.linkedin.com/in/jyotirmoy-nath-26531714b" target="_blank" class="author-link">LinkedIn ↗</a>
+      <a href="/" class="author-link">Portfolio</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
