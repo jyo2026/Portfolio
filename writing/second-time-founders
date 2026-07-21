@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What a Second-Time Founder Taught Me About Holding My Ground — Jyotirmoy Nath</title>
+<meta name="description" content="A practitioner's observations on founder dynamics, legal judgment under pressure, and what early-stage deals actually teach you about client management." />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ink: #1a1814;
+  --muted: #6b6560;
+  --rule: #e2ddd8;
+  --bg: #faf8f5;
+  --accent: #c0392b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,248,245,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--rule);
+  padding: 0 5%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.back-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--ink); }
+
+/* ARTICLE */
+.article-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
+}
+
+.article-cat {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.article-lede {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #3d3830;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+}
+
+.article-body p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #3d3830;
+  margin-bottom: 28px;
+}
+
+.article-body h2 {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ink);
+  margin: 52px 0 18px;
+}
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  margin: 40px 0;
+  padding: 4px 0 4px 24px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* AUTHOR FOOTER */
+.article-footer {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.author-bio {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.author-links {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.author-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  background: #ede9e3;
+  padding: 8px 16px;
+  border-radius: 980px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.author-link:hover { opacity: 0.7; }
+
+@media (max-width: 600px) {
+  .article-footer { flex-wrap: wrap; }
+  .author-links { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-name">Jyotirmoy Nath</a>
+  <a href="/#writing" class="back-link">← Writing</a>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <div class="article-cat">Corporate Law · Early Stage Deals</div>
+
+  <div class="article-meta">
+    <span>4 min read</span>
+  </div>
+
+  <h1>What a Second-Time Founder Taught Me About Holding My Ground</h1>
+
+  <p class="article-lede">
+    I assumed working with an experienced founder would be easier. It wasn't, not in the way I expected.
+  </p>
+
+  <div class="article-body">
+
+    <p>I worked on a seed round recently for a founder who'd done this before. She'd been part of a funding round at her last startup, so she wasn't seeing an SHA for the first time, and she was raising from a solid table of investors this round.</p>
+
+    <p>I assumed that would make things easier. It didn't, not in the way I expected.</p>
+
+    <h2>Half-knowledge is its own kind of challenge</h2>
+
+    <p>First-time founders mostly defer to their lawyers, because they know they don't know the process. She wasn't like that. She understood the flow, the documents, the sequence of things. What she hadn't fully clocked was why certain things needed to slow down before they moved.</p>
+
+    <p>That gap is quieter than the first-timer gap. It doesn't announce itself.</p>
+
+    <h2>The holding email that became a flashpoint</h2>
+
+    <p>We'd gotten redlines back from investor counsel. Most of it was routine, but one point needed my senior to look at it properly before we responded. So I sent a holding email, saying we'd revert once she'd reviewed it. Standard stuff on any deal.</p>
+
+    <p>The founder read it as stalling and went straight to my senior.</p>
+
+    <p>What stuck with me is what my senior didn't do. She didn't apologise for the delay or rush the review to smooth things over. She got on a call and walked the founder through exactly why that point needed a second look. There's a version of that conversation where the lawyer just caves, sends the document out to keep the client happy in the moment. That's the easy way to lose the ability to say no later.</p>
+
+    <blockquote>A lawyer who folds the moment a client pushes back isn't managing the relationship. They're just postponing the next fight to a worse moment.</blockquote>
+
+    <h2>But she also moved the deal in ways we couldn't</h2>
+
+    <p>To be fair to her, she moved things in ways we couldn't have. When investor counsel sat on a point that didn't need fighting over, she picked up the phone and called the investor directly. Deal moved by evening. That instinct for when to push and when to just let something go isn't something a lawyer can replicate from behind an email thread.</p>
+
+    <p>She was also decent about the small stuff. I once messaged her on a Friday night asking if we could hold follow-ups till the weekend since it was my senior's birthday. She said yes without making it a thing.</p>
+
+    <h2>What this deal clarified</h2>
+
+    <p>A lawyer's job in these rounds isn't only drafting and negotiating. Sometimes it's holding a position your client is annoyed about, explaining it properly, and letting them come around instead of folding because it's easier in the moment.</p>
+
+    <p>Second-time founders will test that more than first-timers will, not because they're harder to work with, but because they know enough to push back.</p>
+
+    <p style="font-size: 14px; color: var(--muted); margin-top: 48px;">Personal observations from practice. Nothing here constitutes legal advice. Names and deal details have been kept deliberately general.</p>
+
+  </div>
+
+  <!-- AUTHOR FOOTER -->
+  <div class="article-footer">
+    <div class="author-avatar">J</div>
+    <div>
+      <div class="author-name">Jyotirmoy Nath</div>
+      <div class="author-bio">Lawyer · Founder · AI builder</div>
+    </div>
+    <div class="author-links">
+      <a href="https://in.linkedin.com/in/jyotirmoy-nath-26531714b" target="_blank" class="author-link">LinkedIn ↗</a>
+      <a href="/" class="author-link">Portfolio</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
