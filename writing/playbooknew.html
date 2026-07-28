@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What a Second-Time Founder Taught Me About Client Management — Jyotirmoy Nath</title>
+<meta name="description" content="A practitioner's observations on founder dynamics, legal judgment under pressure, and what early-stage deals actually teach you about client management." />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ink: #1a1814;
+  --muted: #6b6560;
+  --rule: #e2ddd8;
+  --bg: #faf8f5;
+  --accent: #c0392b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,248,245,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--rule);
+  padding: 0 5%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.back-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--ink); }
+
+/* ARTICLE */
+.article-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
+}
+
+.article-cat {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.article-lede {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #3d3830;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+}
+
+.article-body p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #3d3830;
+  margin-bottom: 28px;
+}
+
+.article-body h2 {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ink);
+  margin: 52px 0 18px;
+}
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  margin: 40px 0;
+  padding: 4px 0 4px 24px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* AUTHOR FOOTER */
+.article-footer {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.author-bio {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.author-links {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.author-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  background: #ede9e3;
+  padding: 8px 16px;
+  border-radius: 980px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.author-link:hover { opacity: 0.7; }
+
+@media (max-width: 600px) {
+  .article-footer { flex-wrap: wrap; }
+  .author-links { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-name">Jyotirmoy Nath</a>
+  <a href="/#writing" class="back-link">← Writing</a>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <div class="article-cat">Corporate Law · Early Stage Deals</div>
+
+  <div class="article-meta">
+    <span>4 min read</span>
+  </div>
+
+  <h1>What a Second-Time Founder Taught Me About Client Management</h1>
+
+  <p class="article-lede">
+    He had done this before. And that, I quickly realised, was exactly what made it interesting.
+  </p>
+
+  <div class="article-body">
+
+    <p>I recently worked on a seed round for a founder who was raising from a serious table — Antler, Piper and other leading Tier 1 investors. He had been part of funding rounds before and understood how VC deals worked. He wasn't signing an SHA for the first time.</p>
+
+    <p>I assumed that would make things easier. It didn't, not in the way I expected.</p>
+
+    <h2>Even experience leaves a gap</h2>
+
+    <p>First-time founders mostly defer to their lawyers, because they know they don't know the process. Founders who have been through a round before arrive with a working mental model of the process. He understood the flow, the documents, the sequence of things. What he did not always have was a feel for why certain things needed to slow down before they moved.</p>
+
+    <p>That gap is quieter than the first-timer gap. It doesn't announce itself.</p>
+
+    <h2>The representation that wasn't small</h2>
+
+    <p>Redlines came back from investor counsel. Most of it was routine markup, the kind that gets cleared in one pass. One change was tucked inside a representation in the SSA, a single line stating that the company qualified as a "small company" under the Companies Act, 2013.</p>
+
+    <p>To someone without a legal background, that line reads as harmless, maybe even reassuring. Small sounds low-risk. But under the Companies Act, 2013, "small company" is a defined term, tied to specific thresholds for turnover and paid-up capital. A company either falls within those thresholds or it doesn't, and the classification comes with its own set of compliance obligations. So this was a factual claim with a precise legal meaning, not a stylistic choice in the drafting, and the company had already crossed those thresholds. Signing the representation as drafted meant putting a false statement about the company's legal status into a binding document.</p>
+
+    <p>He wanted to move. Every other point on the redline was minor, and he didn't see why this one should hold things up. I told him we needed a day — not to negotiate the point, but to verify it properly and revert with comments rather than accept it as-is.</p>
+
+    <blockquote>Moving fast is only useful if what you're agreeing to is actually true. A single line, unnoticed, can outlast the deal that created it.</blockquote>
+
+    <p>He agreed. We confirmed the financials against the statutory thresholds, corrected the representation, and it went out before signing.</p>
+
+    <h2>But he also moved the deal in ways we couldn't</h2>
+
+    <p>To be fair to him, he moved things in ways we couldn't have. When investor counsel sat on a point that didn't need fighting over, he picked up the phone and called the investor directly. Deal moved by evening. That instinct for when to push and when to just let something go isn't something a lawyer can replicate from behind an email thread.</p>
+
+    <p>He was a tough but reasonable client. I once messaged him on a Friday night asking if we could hold follow-ups till the weekend since it was my senior's birthday. He said yes without making it a thing.</p>
+
+    <h2>What this deal clarified</h2>
+
+    <p>A lawyer's job in these rounds isn't only drafting and negotiating. Sometimes it's catching the one line a client has already decided doesn't matter, and being willing to slow things down for a day when everyone else in the room wants to sign.</p>
+
+    <p>Second-time founders will push on that harder than first-timers will — not because they're difficult, but because their experience makes them confident about which points are worth a fight. Occasionally, that confidence is wrong, and that's exactly the moment a lawyer earns their fee.</p>
+
+    <p style="font-size: 14px; color: var(--muted); margin-top: 48px;">Personal observations from practice. Nothing here constitutes legal advice. Names and deal details have been kept deliberately general.</p>
+
+  </div>
+
+  <!-- AUTHOR FOOTER -->
+  <div class="article-footer">
+    <div class="author-avatar">J</div>
+    <div>
+      <div class="author-name">Jyotirmoy Nath</div>
+      <div class="author-bio">Corporate Lawyer · AI builder</div>
+    </div>
+    <div class="author-links">
+      <a href="https://in.linkedin.com/in/jyotirmoy-nath-26531714b" target="_blank" class="author-link">LinkedIn ↗</a>
+      <a href="/" class="author-link">Portfolio</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
