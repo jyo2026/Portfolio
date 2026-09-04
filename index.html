@@ -414,11 +414,23 @@
        RESPONSIVE
     ════════════════════════════ */
     @media (max-width: 768px) {
-      #home { padding: 3.5rem 6%; min-height: auto; }
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-photo { display: none; }
+      #home { padding: 3.5rem 6% 2.5rem; min-height: 90vh; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+      .hero-inner > div:first-child { order: 2; }
+      .hero-photo {
+        display: block;
+        order: 1;
+        width: 160px;
+        height: 194px;
+        margin-bottom: 1.5rem;
+      }
       .hero-h1 { font-size: 30px; }
       .hero-sub { font-size: 15px; max-width: 100%; }
+      .hero-btns { justify-content: center; }
       .nav-links { display: none; }
 
       #featured { padding: 3rem 6%; }
